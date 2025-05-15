@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir</title>
+</head>
+<body>
+    <h1></h1>
+    <input type="text" id="nomeUsu" name="nomeUsu">
+    <input type="email" id="emailUsu" name="emailUsu">
+    <input type="password" id="senhaUsu" name="senhaUsu">
+    <button onclick="Inserir()">Enviar</button>
+</body>
+<script>
+    function Inserir() {
+        const xhttp = new XMLHttpRequest();
+        var nome = document.getElementById("nomeUsu").value;
+        var email = document.getElementById("emailUsu").value;
+        var senha = document.getElementById("senhaUsu").value;
+        xhttp.onload = function() {
+            alert(this.responseText);
+        }
+    xhttp.open("POST", "insert.php?usuario="+nome+"&email="+email+"&senha="+senha);
+    xhttp.send();
+}
+</script>
+</html>
