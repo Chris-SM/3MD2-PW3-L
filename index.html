@@ -7,22 +7,13 @@
 </head>
 <body>
     <h1></h1>
-    <input type="text" id="nomeUsu" name="nomeUsu">
-    <input type="email" id="emailUsu" name="emailUsu">
-    <input type="password" id="senhaUsu" name="senhaUsu">
+    <input type="text" id="nomeUsu" name="nomeUsu"><br>
+    <input type="text" id="loginUsu" name="loginUsu"><br>
+    <input type="email" id="emailUsu" name="emailUsu"><br>
+    <input type="tel" id="teleUsu" name="teleUsu"><br>
+    <input type="file" id="fotoUsu" name="fotoUsu" accept="image"><br>
+    <input type="password" id="senhaUsu" name="senhaUsu"><br>
     <button onclick="Inserir()">Enviar</button>
 </body>
-<script>
-    function Inserir() {
-        const xhttp = new XMLHttpRequest();
-        var nome = document.getElementById("nomeUsu").value;
-        var email = document.getElementById("emailUsu").value;
-        var senha = document.getElementById("senhaUsu").value;
-        xhttp.onload = function() {
-            alert(this.responseText);
-        }
-    xhttp.open("POST", "insert.php?usuario="+nome+"&email="+email+"&senha="+senha);
-    xhttp.send();
-}
-</script>
+<script src="cereblo.js"></script>
 </html>
