@@ -5,9 +5,9 @@ function Inserir() {
     var login = document.getElementById("loginUsu").value;
     var email = document.getElementById("emailUsu").value;
     var tele = document.getElementById("teleUsu").value;
-    var foto = document.getElementById("fotoUsu").value;
+    // var foto = document.getElementById("fotoUsu");
     var senha = document.getElementById("senhaUsu").value;
-    console.log(foto);
+    console.log(foto.value);
     xhttp.onload = function() {
         alert(this.responseText);
     }

@@ -7,13 +7,36 @@
 </head>
 <body>
     <h1></h1>
+    <label for="nomeUsu">Nome Completa:</label>
     <input type="text" id="nomeUsu" name="nomeUsu"><br>
+    <label for="loginUsu">Username:</label>
     <input type="text" id="loginUsu" name="loginUsu"><br>
+    <label for="emailUsu">Email:</label>
     <input type="email" id="emailUsu" name="emailUsu"><br>
+    <label for="teleUsu">Telefone:</label>
     <input type="tel" id="teleUsu" name="teleUsu"><br>
+    <label for="fotoUsu">Foto:</label>
     <input type="file" id="fotoUsu" name="fotoUsu" accept="image"><br>
+    <label for="senhaUsu">Senha:</label>
     <input type="password" id="senhaUsu" name="senhaUsu"><br>
     <button onclick="Inserir()">Enviar</button>
 </body>
-<script src="cereblo.js"></script>
+<script>
+    
+function Inserir() {
+    const xhttp = new XMLHttpRequest();
+    var nome = document.getElementById("nomeUsu").value;
+    var login = document.getElementById("loginUsu").value;
+    var email = document.getElementById("emailUsu").value;
+    var tele = document.getElementById("teleUsu").value;
+    // var foto = document.getElementById("fotoUsu");
+    var senha = document.getElementById("senhaUsu").value;
+    // console.log(foto.value);
+    xhttp.onload = function() {
+        alert(this.responseText);
+    }
+    xhttp.open("POST", "insert.php?nome="+nome+"&email="+email+"&senha="+senha+"&login="+login+"&tele="+tele);
+    xhttp.send();
+}
+</script>
 </html>
