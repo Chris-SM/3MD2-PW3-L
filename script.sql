@@ -8,6 +8,6 @@ nm_usuario varchar(60),
 nm_email varchar(70),
 nm_senha varchar(20),
 nr_telefone char(11),
-nm_local_foto varchar(100)
+nm_local_foto varchar(250)
 );
 
