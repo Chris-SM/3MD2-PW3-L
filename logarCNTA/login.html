@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h2>Login</h2>
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+        <button type="submit" onclick="Procurar()">Entrar</button>
+</body>
+<script>
+    
+    function Procurar() {
+            const xhttp = new XMLHttpRequest();
+            var login = document.getElementById("usuario").value;
+            var senha = document.getElementById("senha").value;
+            xhttp.onload = function () {
+                alert(this.responseText);
+            }
+            xhttp.open("POST", "login.php?login=" + login + "&senha=" + senha);
+            xhttp.send();
+        }
+</script>
+</html>
