@@ -7,9 +7,8 @@ $usuario = $_REQUEST['login'];
 $senha = $_REQUEST['senha'];
 
 $select = "select * from tb_usuario where nm_login = '$usuario';";
-$result = $mysqli->query($select);
+$result = $conn->query($select);
 $row = $result->fetch_row();
-var_dump($row);
 if ($conn->query($select)) {
 foreach ($conn->query($select) as $row) {
     if ($senha === $senha_correta) {
