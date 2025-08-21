@@ -1,6 +1,6 @@
 <?php 
 $username = 'root';
-$password = 'admin';
+$password = 'root';
 try {
     $conn = new PDO('mysql:host=localhost;dbname=BancodeDados',$username,$password);
       $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

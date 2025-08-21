@@ -2,7 +2,7 @@
 
 include '../db/conecta.php';
 $vez = $_REQUEST['vez'];
-$selec = "select id_usuario, nm_usuario from tb_usuario limit 1 offset $vez;";
+$selec = "select count(id_usuario) from tb_usuario ;";
 $naFoi = true;
 foreach ($conn->query($selec) as $row) {
     echo $row['id_usuario']."|";

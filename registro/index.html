@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <table id="cadastros">
+        <tr id="titulo">
+            <th>Nome</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <!-- <tr>
+            <td>AAAAAAA</td>
+            <td>AAAAAAA</td>
+            <td>AAAAAAA</td>
+        </tr> -->
+    </table>
+</body>
+
+<script>
+    carregarLista()
+    function carregarLista() {
+        console.log("Sratr");
+        var vez = 0;
+        while (vez < 3) {
+            linhaPessoa(vez);
+            vez++;
+        }
+
+
+        // const xhttp = new XMLHttpRequest();
+        // xhttp.onload = function () {
+        //     var resposta = (this.responseText).split("|");
+        //     console.log("ID: " + resposta[0] + "  Nome:" + resposta[1]);
+        //     document.getElementById("cadastros").innerHTML += "<tr><td>12</td><td>13</td><td>15</td></tr>";
+        // }
+        // xhttp.open("POST", "cadastrados.php?vez=" + vez);
+        // xhttp.send();
+    }
+    function linhaPessoa(vez) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            var resposta = (this.responseText).split("|");
+            var buttaoEdi = "<td><button id='editar"+vez+"'>Editar</button></td>";
+            var buttaoExc = "<td><button id='excluir"+vez+"'>Excluir</button></td>";
+            console.log("ID: " + resposta[0] + "  Nome:" + resposta[1]);
+            document.getElementById("cadastros").innerHTML += "<tr><td>"+resposta[1]+"</td>"+buttaoEdi+buttaoExc+"</tr>";
+        }
+        xhttp.open("POST", "cadastrados.php?vez=" + vez);
+        xhttp.send();
+    }
+</script>
+
+</html>
