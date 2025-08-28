@@ -1,17 +1,10 @@
 <?php 
 
 include '../db/conecta.php';
-$vez = $_REQUEST['vez'];
-$selec = "select count(id_usuario) from tb_usuario ;";
-$naFoi = true;
+
+$selec = "select count(id_usuario) as qt from tb_usuario;";
+
 foreach ($conn->query($selec) as $row) {
-    echo $row['id_usuario']."|";
-    echo $row['nm_usuario'];
-    $naFoi = false;
+    echo $row['qt'];
 }
-
-if ($naFoi) {
-    echo "true";
-}
-
 ?>
