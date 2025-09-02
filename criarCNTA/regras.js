@@ -6,14 +6,14 @@ function Inserir() {
         var login = document.getElementById("loginUsu").value;
         var email = document.getElementById("emailUsu").value;
         var tele = document.getElementById("teleUsu").value;
-        // var foto = document.getElementById("fotoUsu");
+        var foto = document.getElementById("fotoUsu").form.files[0];
         var senha = document.getElementById("senhaUsu").value;
-        // console.log(foto.value);
+        console.log(foto.value);
         xhttp.onload = function () {
             alert(this.responseText);
         }
-        xhttp.open("POST", "insert.php?nome=" + nome + "&email=" + email + "&senha=" + senha + "&login=" + login + "&tele=" + tele);
-        xhttp.send();
+        xhttp.open("POST", "insert.php?nome=" + nome + "&email=" + email + "&senha=" + senha + "&login=" + login + "&tele=" + tele+"&file="+foto,true);
+        xhttp.send(foto);
     }
     else {
         alert("Criterios não atigindos");

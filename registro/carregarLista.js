@@ -24,18 +24,22 @@ function carregarLista() {
     // xhttp.send();
 }
 function linhaPessoa(vez) {
+        var buttaoEdi = "<button id='editar" + vez + "' onclick='editar(id)' class='btn btn-primary' style='float:right;'>Editar</button>";
+        var buttaoExc = "<button id='excluir" + vez + "' onclick='excluir(id)' class='btn btn-danger 'style='float:left;'>Excluir</button>";
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         var resposta = (this.responseText).split("|");
-        var buttaoEdi = "<td><button id='editar" + vez + "' onclick='editar(id)'>Editar</button></td>";
-        var buttaoExc = "<td><button id='excluir" + vez + "' onclick='excluir(id)'>Excluir</button></td>";
-        console.log("ID: " + resposta[0] + "  Nome:" + resposta[1]);
-        document.getElementById("cadastros").innerHTML += "<tr><td class='user'>" + resposta[1] + "</td>"+
-        "<td class='login'>" + resposta[2] + "</td>" +
-        "<td class='email'>" + resposta[3] + "</td>" +
-        "<td class='fone'>" + resposta[4] + "</td>" +
-        "<td class='foto'><img src='" + resposta[5] + "'></td>" +
-         buttaoEdi + buttaoExc + "</tr>";
+        if ("" == resposta[5]) {
+            resposta[5] = "../fotos/user/user.png";
+        }
+        var conteudo = "<div class='card' style='width: 18rem;'>"+
+            '<img class="card-img-top" src="'+resposta[5]+'">'+
+            '<div class="card-body">'+
+                '<h5 class="card-title">'+resposta[2]+'</h5>'+
+                '<p class="card-text">Nome de Usuario: '+resposta[1]+
+                '<br>Email: '+resposta[3]+'<br>Telefone: '+resposta[4]+'</p>'+buttaoEdi+buttaoExc+
+            '</div> </div>';
+        document.getElementById("Registados").innerHTML += conteudo;
     }
     xhttp.open("POST", "cadastrados.php?vez=" + vez);
     xhttp.send();
