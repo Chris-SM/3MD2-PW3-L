@@ -35,7 +35,7 @@ function linhaPessoa(vez) {
         var conteudo = "<div class='card' style='width: 18rem;'>"+
             '<img class="card-img-top" src="'+resposta[5]+'">'+
             '<div class="card-body">'+
-                '<h5 class="card-title">'+resposta[2]+'</h5>'+
+                '<h5 class="card-title" id="'+vez+'" class="'+resposta[6]+'">'+resposta[2]+'</h5>'+
                 '<p class="card-text">Nome de Usuario: '+resposta[1]+
                 '<br>Email: '+resposta[3]+'<br>Telefone: '+resposta[4]+'</p>'+buttaoEdi+buttaoExc+
             '</div> </div>';

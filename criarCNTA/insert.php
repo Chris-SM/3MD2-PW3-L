@@ -2,12 +2,17 @@
 
 include '../db/conecta.php';
 
-$uploaddir = '/fotos/user';
-$uploadfile = $uploaddir . basename($_FILES['file']['name']);
+$headers = realpath('../');
+$test = $_FILES['fotoUsu']['tmp_name'];
+$headers = $headers."\\fotos\user\\".$_FILES['fotoUsu']['name'];
+$nomeFoto = $_FILES['fotoUsu']['name'];
 
-echo '<pre>';
-if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+
+
+if (copy($_FILES['fotoUsu']['tmp_name'], $headers)) {
+    echo "Arquivo enviado com sucesso.";
 } else {
+    echo "Falha ao enviar o arquivo.";
 }
 
 
@@ -15,11 +20,13 @@ $usuario = $_REQUEST["nome"];
 $email= $_REQUEST["email"];
 $login = $_REQUEST["login"];
 $tele = $_REQUEST["tele"];
-$tele = str_replace("("|")","",$tele);
-$tele = str_replace(" "|"-","",$tele);
-// $foto = $_REQUEST["foto"];
+$tele = str_replace(")","",$tele);
+$tele = str_replace("(","",$tele);
+$tele = str_replace(" ","",$tele);
+$tele = str_replace("-","",$tele);
+$foto = str_replace("\\","\\\\",("..\\fotos\user\\".$_FILES['fotoUsu']['name']));
 $senha = $_REQUEST["senha"];
-$sql = 'insert into tb_usuario values(null, "'.$login.'","'.$usuario.'","'.$email.'","'.$senha.'","'.$tele.'",null);';
+$sql = 'insert into tb_usuario values(null, "'.$login.'","'.$usuario.'","'.$email.'","'.$senha.'","'.$tele.'","'.$foto.'");';
 if ($conn->query($sql)) {
     echo 'Registro inserido';
     $_SESSION['usuario'] = $usuario;

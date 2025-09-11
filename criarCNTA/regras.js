@@ -1,24 +1,48 @@
-
 function Inserir() {
     if (!RegraSenha.includes(false)) {
-        const xhttp = new XMLHttpRequest();
-        var nome = document.getElementById("nomeUsu").value;
-        var login = document.getElementById("loginUsu").value;
-        var email = document.getElementById("emailUsu").value;
-        var tele = document.getElementById("teleUsu").value;
-        var foto = document.getElementById("fotoUsu").form.files[0];
-        var senha = document.getElementById("senhaUsu").value;
-        console.log(foto.value);
+        var form = document.getElementById("formCadastro");
+        var formData = new FormData(form);
+
+        formData.append("nome", document.getElementById("nomeUsu").value);
+        formData.append("login", document.getElementById("loginUsu").value);
+        formData.append("email", document.getElementById("emailUsu").value);
+        formData.append("tele", document.getElementById("teleUsu").value);
+        formData.append("senha", document.getElementById("senhaUsu").value);
+
+        var xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
-            alert(this.responseText);
+            console.log(this.responseText);
         }
-        xhttp.open("POST", "insert.php?nome=" + nome + "&email=" + email + "&senha=" + senha + "&login=" + login + "&tele=" + tele+"&file="+foto,true);
-        xhttp.send(foto);
-    }
-    else {
+        xhttp.open("POST", "insert.php", true);
+        xhttp.send(formData);
+    } else {
         alert("Criterios não atigindos");
     }
 }
+
+
+
+
+// function Inserir() {
+//     if (!RegraSenha.includes(false)) {
+//         const xhttp = new XMLHttpRequest();
+//         var nome = document.getElementById("nomeUsu").value;
+//         var login = document.getElementById("loginUsu").value;
+//         var email = document.getElementById("emailUsu").value;
+//         var tele = document.getElementById("teleUsu").value;
+//         var foto = document.getElementById("fotoUsu").form.files[0];
+//         var senha = document.getElementById("senhaUsu").value;
+//         console.log(foto.value);
+//         xhttp.onload = function () {
+//             alert(this.responseText);
+//         }
+//         xhttp.open("POST", "insert.php?nome=" + nome + "&email=" + email + "&senha=" + senha + "&login=" + login + "&tele=" + tele+"&file="+foto,true);
+//         xhttp.send(foto);
+//     }
+//     else {
+//         alert("Criterios não atigindos");
+//     }
+// }
 var numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var caracter = ["!", "?", ".", ";", ":", "-", "_", "+", "*", "/", "|", "\\", '$', '§', '€', '£', '¥', '@', '#', '%', '&', '~', '`', '}', '{', 'Ç'];
