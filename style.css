@@ -1,0 +1,86 @@
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* A letra do bagulho, pra ficar legível */
+    background-color: #f4f4f4; /* Um cinzinha de fundo, pra não cansar a vista */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Joga tudo pro meio */
+}
+
+/* A nossa barra de navegação (o painel da nave) */
+.navbar {
+    background-color: #333; /* Um fundo escuro, chique */
+    width: 100%;
+    padding: 15px 0;
+    color: white;
+    display: flex;
+    justify-content: center; /* Centraliza os links */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Uma sombrinha pra dar profundidade */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none; /* Tira aquele sublinhado feio dos links */
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px; /* Deixa as bordas dos links arredondadas */
+    transition: background-color 0.3s; /* Uma animaçãozinha suave quando passa o mouse */
+}
+
+.navbar a:hover {
+    background-color: #555; /* Muda de cor ao passar o mouse */
+}
+
+/* Estilo para os formulários e contêineres */
+.container {
+    background: white;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Estilo dos inputs (caixas de texto) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+/* Estilo dos botões */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #007BFF; /* Um azul daora */
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer; /* A mãozinha quando passa o mouse */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Um azul mais escuro no hover */
+}
+
+/* Estilo dos cards na página de registros */
+#Registados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os cards */
+    padding: 20px;
+}

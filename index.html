@@ -5,26 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <a href="logarCNTA/"><button>Logar</button></a>
-        <a href="criarCNTA/"><button>Criar Conta</button></a>
-        <a href="registro/"><button>Registrados</button></a>
-    </header>
-    <h1>Menu inicial</h1>
-    <label id="MsgBV">Bem-Vindo</label>
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="logarCNTA/">Logar</a>
+    <a href="criarCNTA/">Criar Conta</a>
+    <a href="registro/">Registrados</a>
+</nav>
+
+    <div class="container">
+        <h1>Menu inicial</h1>
+        <label id="MsgBV">Bem-Vindo</label>
+    </div>
+
 </body>
 <script>
-
+    // Seu script continua o mesmo
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         document.getElementById("MsgBV").value += this.responseText;
     }
     xhttp.open("GET", "logado.php");
     xhttp.send();
-    location.href +=  "/registro";
+    // A linha abaixo redireciona direto, talvez você queira repensar isso
+    // location.href +=  "/registro";
 </script>
 
 </html>
