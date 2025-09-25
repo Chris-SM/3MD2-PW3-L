@@ -8,7 +8,6 @@ foreach ($conn->query($selec) as $row) {
     echo $row['nm_usuario']."|";
     echo $row['nm_email']."|";
     echo $row['nr_telefone']."|";
-    echo $row['nm_local_foto']."|";
     echo $row['id_usuario'];
 }
 ?>

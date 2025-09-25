@@ -18,6 +18,7 @@ function Inserir() {
     } else {
         alert("Criterios não atigindos");
     }
+    window.location.href = "../registro/";
 }
 
 

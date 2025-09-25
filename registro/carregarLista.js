@@ -32,12 +32,13 @@ function linhaPessoa(vez) {
         if ("" == resposta[5]) {
             resposta[5] = "../fotos/user/user.png";
         }
+        var telefone = "(" + resposta[4].substring(0, 2) + ") " + resposta[4].substring(2, 6)+"-"+resposta[4].substring(6);
         var conteudo = "<div class='card' style='width: 18rem;'>"+
             '<img class="card-img-top" src="'+resposta[5]+'">'+
             '<div class="card-body">'+
                 '<h5 class="card-title" id="'+vez+'" class="'+resposta[6]+'">'+resposta[2]+'</h5>'+
                 '<p class="card-text">Nome de Usuario: '+resposta[1]+
-                '<br>Email: '+resposta[3]+'<br>Telefone: '+resposta[4]+'</p>'+buttaoEdi+buttaoExc+
+                '<br>Email: '+resposta[3]+'<br>Telefone: '+telefone+'</p>'+buttaoEdi+buttaoExc+
             '</div> </div>';
         document.getElementById("Registados").innerHTML += conteudo;
     }

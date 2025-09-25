@@ -84,3 +84,11 @@ button:hover {
     gap: 20px; /* Espaçamento entre os cards */
     padding: 20px;
 }
+
+.modal-footer{
+    margin: 1vh;
+}
+
+.modal-footer button{
+    margin: 1vh;
+}
