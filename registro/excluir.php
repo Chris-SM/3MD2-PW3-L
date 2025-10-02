@@ -6,7 +6,7 @@ $cod = $_REQUEST["ide"];
 $senha = $_REQUEST["senha"];
 
 
-$selec = "select nm_senha as se from tb_usuario where id_usuario = $cod;";
+$selec = "select nm_senha from tb_usuario where id_usuario = $cod;";
 echo $cod;
 echo $senha;
 

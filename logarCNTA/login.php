@@ -10,7 +10,7 @@ $select = "select * from tb_usuario where nm_login = '$usuario';";
 $result = $conn->query($select);
 if ($conn->query($select)) {
 foreach ($conn->query($select) as $row) {
-    if ($senha === $senha_correta) {
+    if ($senha === $row['nm_senha']) {
         $_SESSION['usuario'] = $usuario;
         echo "Certo";
         //Tudo certo
